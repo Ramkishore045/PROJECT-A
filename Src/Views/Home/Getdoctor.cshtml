@@ -1,0 +1,72 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model IEnumerable<ClinikMangementSystem.Models.Doctor>
+<html>
+<style>
+    body{
+        background-image: url("/Photos/6.jpg");
+        }
+</style>
+    <body style="background-size:cover">
+        <header>
+            <nav class="navbar ">
+
+                <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
+                    <div class="container">
+                        <img src="~/Photos/Stone-Clinic-Logo.png" height="50px" width="50px" />
+
+                        <a class="navbar-brand" href="#"><span class="text-primary">TheStone</span>-Clinic</a>
+
+                        <nav class="collapse navbar-collapse" id="navbarSupport">
+                            <ul class="navbar-nav ml-auto">
+                                @using (Html.BeginForm("Doctor", "Home", FormMethod.Post))
+                                {
+                                <li><input type="submit" value="BACK" style="color:blue" /></li>}
+                            </ul>
+                        </nav> <!-- .navbar-collapse -->
+                    </div> <!-- .container -->
+                </nav>
+            </nav>
+        </header>
+        <h1 style="color:deeppink"><center><b> All-Doctorss</b></center></h1>
+        @using (Html.BeginForm("GetDoctor", "Home", FormMethod.Post))
+        { }
+        <table class="table">
+            <thead>
+                <tr>
+                    <td style="color:brown">@Html.DisplayName("DoctorID")</td>
+                    <td style="color:brown">@Html.DisplayName("FirstName")</td>
+                    <td style="color:brown">@Html.DisplayName("LastName")</td>
+                    <td style="color:brown">@Html.DisplayName("Sex")</td>
+                    <td style="color:brown">@Html.DisplayName("Specialization")</td>
+                   
+
+
+
+
+                </tr>
+            </thead>
+            @foreach (var item in Model)
+            {
+        <tr>
+            <td style="color:black">@Html.DisplayFor(m => item.DoctorId)</td>
+            <td style="color:black">@Html.DisplayFor(m => item.FirstName)</td>
+            <td style="color:black">@Html.DisplayFor(m => item.LastName)</td>
+            <td style="color:black">@Html.DisplayFor(m => item.Sex)</td>
+            <td style="color:black">@Html.DisplayFor(m => item.Specialization)</td>
+          
+
+
+        </tr>
+            }
+
+
+        </table>
+        <div>
+            <a asp-action="NewDoctor"></a>
+        </div>
+    </body>
+    </html>

@@ -1,0 +1,145 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{ }
+@model ClinikMangementSystem.Models.Patient
+<style>
+    body {
+        background-image: url("/Photos/5.jpg");
+    }
+</style>
+<html>
+<head>
+</head>
+<body style="background-size:cover">
+    <header>
+        <nav class="navbar ">
+
+            <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
+                <div class="container">
+                    <img src="~/Photos/Stone-Clinic-Logo.png" height="50px" width="50px" />
+
+                    <a class="navbar-brand" href="#"><span class="text-primary">TheStone</span>-Clinic</a>
+
+                    <nav class="collapse navbar-collapse" id="navbarSupport">
+                        <ul class="navbar-nav ml-auto">
+                            @using (Html.BeginForm("Homepage", "Home", FormMethod.Post))
+                            {
+                <li><input type="submit" value="Home" style="color:blue" /></li>}
+                            @using (Html.BeginForm("GetPatient", "Home", FormMethod.Post))
+                            {
+                <li><input type="submit" value="AllPatients" style="color:blue" /></li>
+}
+                        </ul>
+                    </nav> <!-- .navbar-collapse -->
+                </div> <!-- .container -->
+            </nav>
+        </nav>
+    </header>
+    @*@using (Html.BeginForm("NewPatient", "Home", FormMethod.Post))
+            {
+
+              <table cellpadding="5" cellspacing="5" border="0">
+            <tr>
+
+                <td><center><h1 style="color:deeppink"><b>AddPatient</b></h1></center></td>
+            </tr>
+            <tr>
+                <td>First Name</td>
+                <td>@Html.TextBoxFor(m => m.FirstName)</td>
+                <td><span asp-validation-for="FirstName" class="text-danger" style="color:Red"></span></td>
+            </tr>
+            <tr>
+                <td>Last Name</td>
+                <td>@Html.TextBoxFor(m => m.LastName)</td>
+                <td><span asp-validation-for="LastName" class="text-danger" style="color:Red"></span></td>
+            </tr>
+            <tr>
+                <td> Sex</td>
+                <td>
+                    <select name="Sex">
+                        <option value="select-sex">Select Sex</option>
+                        <option value="MALE">MALE</option>
+                        <option value="FEMALE">FEMALE</option>
+                        <option value="OTHERS">OTHERS</option>
+                    </select>
+                </td>
+                <td><span asp-validation-for="Sex" class="text-danger" style="color:Red"></span></td>
+            </tr>
+                 <tr>
+                     <td>Date_of_Birth</td>
+                     <td>
+                         <input asp-for="Date_of_birth" id="dob" class="form-control" type="date"/>
+                         <span asp-validation-for="Date_of_birth" class="text-danger" style="color:Red"></span>
+                     </td>
+                 </tr>
+
+            <tr>
+                <td></td>
+                <td></td>
+                <td><input type="submit" value="ADD" style="color:blue" /></td>
+
+            </tr>
+        </table>
+            }*@
+
+    <div class="row" cellpadding="5" cellspacing="5" border="0">
+        <div class="col-md-4">
+            <form asp-action="NewPatient" asp-controller="Home" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group">
+                    <label asp-for="FirstName" class="control-label" style="color:orchid"></label>
+                    <input asp-for="FirstName" class="form-control" />
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                </div>
+                <hr />
+                <div class="form-group">
+                    <label asp-for="LastName" class="control-label" style="color:orchid"></label>
+                    <input asp-for="LastName" class="form-control" />
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+                </div>
+                <hr />
+                <div class="form-group">
+                    <div class="cols-sm-2">
+                        <label asp-for="Sex" class=" cols-sm-2 control-label" style="color:orchid"></label>
+                        <select name="Sex">
+                            <option value="select-sex">Select Sex</option>
+                            <option value="MALE">MALE</option>
+                            <option value="FEMALE">FEMALE</option>
+                            <option value="OTHERS">OTHERS</option>
+                        </select>
+                        <span asp-validation-for="Sex" class="fa fa-calender" aria-hidden="true"></span>
+                    </div>
+                    <hr />
+                    @*<div class="form-group">
+                            <label asp-for="Age" class="control-label" style="color:orchid"></label>
+                            <input asp-for="Age" class="form-control" />
+                            <span asp-validation-for="Age" class="text-danger"></span>
+                        </div>*@
+                    <hr />
+                    <div class="form-group">
+                        <label asp-for="Date_of_birth" class="control-label" style="color:orchid"></label>
+                        <input asp-for="Date_of_birth" class="form-control" type="date" />
+                        <span asp-validation-for="Date_of_birth" class="text-danger"></span>
+                    </div>
+                    <hr />
+                    <div class="form-group">
+                        <input type="submit" value="ADD" class="btn btn-primary" />
+                    </div>
+
+
+
+            </form>
+        </div>
+    </div>
+
+
+
+</body>
+</html>
+@Html.Raw(TempData["msg"])
+
+
+
+

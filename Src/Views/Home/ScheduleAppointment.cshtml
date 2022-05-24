@@ -1,0 +1,99 @@
+﻿@model ClinikMangementSystem.Models.Schedules
+
+@{
+
+}
+<style>
+    body {
+        background-image: url("/Photos/5.jpg");
+    }
+</style>
+<center><h1 style="color:deeppink"><b>ScheduleAppointment</b></h1></center>
+<body style="background-size:cover">
+    <header>
+        <nav class="navbar ">
+
+            <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
+                <div class="container">
+                    <img src="~/Photos/Stone-Clinic-Logo.png" height="50px" width="50px" />
+
+                    <a class="navbar-brand" href="#"><span class="text-primary">TheStone</span>-Clinic</a>
+
+                    <nav class="collapse navbar-collapse" id="navbarSupport">
+                        <ul class="navbar-nav ml-auto">
+                            @using (Html.BeginForm("Homepage", "Home", FormMethod.Post))
+                            {
+                                <li><input type="submit" value="Home" style="color:blue" /></li>
+                            }
+                        </ul>
+                    </nav> <!-- .navbar-collapse -->
+                </div> <!-- .container -->
+            </nav>
+        </nav>
+    </header>
+</body>
+
+<div class="row" cellpadding="5" cellspacing="5" border="0">
+    <div class="col-md-4">
+        <form asp-action="NewSchedule" asp-controller="Home" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @*<div class="form-group">
+                    <label asp-for="PatientId" class="control-label"></label>
+                    <input asp-for="PatientId" class="form-control" />
+                    <span asp-validation-for="PatientId" class="text-danger"></span>
+                </div>*@
+            <div class="form-group">
+                <label asp-for="Specialization" class="control-label"></label>
+                <select name="Specialization">
+                    <option value="select-specialization">Select Specialization</option>
+                    <option value="General">General</option>
+                    <option value="InternalMedicine">InternalMedicine</option>
+                    <option value="Pediatrics">Pediatrics</option>
+                    <option value="Orthopedics">Orthopedics</option>
+                    <option value="Opthalmology">Opthalmology</option>
+                </select>
+                <span asp-validation-for="Specialization" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DoctorName" class="control-label"></label>
+                <select name="DoctorName">
+                    <option value="select-Doctorname">Select Doctorname</option>
+                    <option value="Chakraphani">Chakraphani</option>
+                    <option value="Kalavathi">Kalavathi</option>
+                    <option value="Raghuramireddy">Raghuramireddy</option>
+                    <option value="Sridharreddy">Sridharreddy</option>
+                    <option value="Shilaparani">Shilaparani</option>
+                    <option value="Pavankumar">Pavankumar</option>
+                    <option value="Yeswanthsai">Yeswanthsai</option>
+                </select>
+                <span asp-validation-for="DoctorName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VisitDate" class="control-label"></label>
+                <input asp-for="VisitDate" id="appdate" class="form-control" type="date" placeholder="DD-MM-YYYY" required />
+                <span asp-validation-for="VisitDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AppointmentTime" class="control-label"></label>
+
+                <input asp-for="AppointmentTime" class="form-control" type="time" />
+                <span asp-validation-for="AppointmentTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="ADD" style="color:blue" />
+            </div>
+
+
+        </form>
+    </div>
+</div>
+
+<div style="color:deeppink">
+    <a asp-action="Index">LogOut</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+@Html.Raw(TempData["msg"])

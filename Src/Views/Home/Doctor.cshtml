@@ -1,0 +1,120 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{ }
+@model ClinikMangementSystem.Models.Doctor
+<style>
+    body {
+        background-image: url("/Photos/6.jpg");
+    }
+</style>
+
+<html>
+<head>
+</head>
+<body style="background-size:cover">
+    <header>
+        <nav class="navbar ">
+
+            <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
+                <div class="container">
+                    <img src="~/Photos/Stone-Clinic-Logo.png" height="50px" width="50px" />
+
+                    <a class="navbar-brand" href="#"><span class="text-primary">TheStone</span>-Clinic</a>
+
+                    <nav class="collapse navbar-collapse" id="navbarSupport">
+                        <ul class="navbar-nav ml-auto">
+                            @using (Html.BeginForm("Homepage", "Home", FormMethod.Post))
+                            {
+                                <li><input type="submit" value="Home" style="color:blue" /></li>
+                            }
+                            @using (Html.BeginForm("GetDoctor", "Home", FormMethod.Post))
+                            {
+                                <li><input type="submit" value="AllDoctors" style="color:blue" /></li>
+                            }
+                        </ul>
+                    </nav> <!-- .navbar-collapse -->
+                </div> <!-- .container -->
+            </nav>
+        </nav>
+    </header>
+    @using (Html.BeginForm("NewDoctor", "Home", FormMethod.Post))
+    {
+        @Html.Raw(TempData["msg"]);
+        <table cellpadding="5" cellspacing="5" border="0">
+            <tr>
+
+                <td><center><h1 style="color:deeppink"><b>AddDoctor</b></h1></center></td>
+            </tr>
+            <tr>
+                <td>First Name</td>
+                <td>@Html.TextBoxFor(m => m.FirstName)</td>
+                <td><span asp-validation-for="FirstName" class="text-danger" style="color:Red"></span></td>
+            </tr>
+            <tr>
+                <td>Last Name</td>
+                <td>@Html.TextBoxFor(m => m.LastName)</td>
+                <td><span asp-validation-for="LastName" class="text-danger" style="color:Red"></span></td>
+            </tr>
+            <tr>
+                <td> Sex</td>
+                <td>
+                    <select name="Sex">
+                        <option value="select-sex">Select Sex</option>
+                        <option value="MALE">MALE</option>
+                        <option value="FEMALE">FEMALE</option>
+                        <option value="OTHERS">OTHERS</option>
+                    </select>
+                </td>
+                <td><span asp-validation-for="Sex" class="text-danger" style="color:Red"></span></td>
+            </tr>
+            <tr>
+                <td>
+                    Specialization
+                </td>
+                <td>
+                    <select name="Specialization">
+                        <option value="select-specialization">Select Specialization</option>
+                        <option value="General">General</option>
+                        <option value="Internal Medicine">InternalMedicine</option>
+                        <option value="Pediatrics">Pediatrics</option>
+                        <option value="Orthopedics">Orthopedics</option>
+                        <option value="Ophthalmology">Ophthalmology</option>
+                    </select>
+                </td>
+                <td><span asp-validation-for="Specialization" class="text-danger" style="color:Red"></span></td>
+            </tr>
+            <tr>
+                <td>
+                    Visiting-Hours
+                </td>
+                <td>
+                    <select name="VisitingHours">
+                        <option value="select-hours">Select Visiting Hours</option>
+                        <option value="08:00 to 09:00">08:00 to 09:00</option>
+                        <option value="09:00 to 10:00">09:00 to 10:00</option>
+                        <option value="10:00 to 11:00">10:00 to 11:00</option>
+                        <option value="11:00 to 12:00">11:00 to 12:00</option>
+                        <option value="02:00 to 03:00">02:00 to 03:00</option>
+                        <option value="03:00 to 04:00">03:00 to 04:00</option>
+                        <option value="04:00 to 05:00">04:00 to 05:00</option>
+                        <option value="05:00 to 06:00">05:00 to 06:00</option>
+                        <option value="06:00 to 07:00">06:00 to 07:00</option>
+                        <option value="07:00 to 08:00">07:00 to 08:00</option>
+                    </select>
+                </td>
+                <td><span asp-validation-for="VisitingHours" class="text-danger" style="color:Red"></span></td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td></td>
+                <td><input type="submit" value="ADD" style="color:blue" /></td>
+
+            </tr>
+
+        </table>}
+</body>
+
+</html>
+@Html.Raw(TempData["msg"])

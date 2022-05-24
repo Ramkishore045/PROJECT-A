@@ -1,0 +1,77 @@
+﻿
+@model IEnumerable<ClinikMangementSystem.Models.Schedules>
+<style>
+    body {
+        background-image: url("/Photos/8.jpg");
+    }
+</style>
+<html>
+<body style="background-size:cover">
+    <header>
+        <nav class="navbar ">
+
+            <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
+                <div class="container">
+                    <img src="~/Photos/Stone-Clinic-Logo.png" height="50px" width="50px" />
+
+                    <a class="navbar-brand" href="#"><span class="text-primary">TheStone</span>-Clinic</a>
+
+                    <nav class="collapse navbar-collapse" id="navbarSupport">
+                        <ul class="navbar-nav ml-auto">
+                            @using (Html.BeginForm("Homepage", "Home", FormMethod.Post))
+                            {
+                <li><input type="submit" value="Home" style="color:blue" /></li>
+}
+                        </ul>
+                    </nav> <!-- .navbar-collapse -->
+                </div> <!-- .container -->
+            </nav>
+        </nav>
+    </header>
+    @using (Html.BeginForm("Homepage", "Home", FormMethod.Post))
+    { }
+    <table class="table" cellpadding="5" cellspacing="5" border="0">
+
+        <thead>
+            <tr><h1 style="color:deeppink"><center><b>CancelAppointment</b></center></h1></tr>
+            <tr>
+
+                <b>
+                <td>@Html.DisplayName("PatientId")</td></b>
+                <b>
+                <td>@Html.DisplayName("Specialization")</td></b>
+                <b>
+                <td>@Html.DisplayName("DoctorName")</td></b>
+                <b>
+                <td>@Html.DisplayName("VisitDate")</td></b>
+                <b>
+                <td>@Html.DisplayName("AppointmentTime")</td></b>
+
+            </tr>
+        </thead>
+        @foreach (var item in Model)
+        {
+<tr>
+
+    <td>@Html.DisplayFor(m => item.PatientId)</td>
+    <td>@Html.DisplayFor(m => item.Specialization)</td>
+    <td>@Html.DisplayFor(m => item.DoctorName)</td>
+    <td>@Html.DisplayFor(m => item.VisitDate)</td>
+    <td>@Html.DisplayFor(m => item.AppointmentTime)</td>
+
+    @*<td><input type="submit" value="cancel" class="btn btn-danger" /></td>*@
+
+
+    <td><a asp-action="Delapp" asp-route-id="@item.PatientId" class=" btn-outline-danger">CancelAppointment</a></td>
+
+</tr>
+}
+    </table>
+    <div>
+        @using (Html.BeginForm("Homepage", "Home", FormMethod.Post))
+        {
+<input type="button" value="Back" onclick="location.href = '@Url.Action("Homepage", "Home")'" class="btn-light" style=" color:blue" />}
+    </div>
+</body>
+</html>
+@Html.Raw(TempData["msg"])

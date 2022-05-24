@@ -1,0 +1,182 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{ }
+
+<style>
+
+    body {
+        background-image: url("/Photos/7.jpg");
+    }
+</style>
+<html>
+
+<body style="background-size:cover">
+    @*<div><center><h1 style="color:darkslategrey"><b>Home</b></h1></center></div>*@
+    <header>
+        <nav class="navbar ">
+            <div class="topbar">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-8 text-sm">
+                            <div class="site-info">
+                                <a href="#"><span class="mai-call text-primary"></span> 415-563-3110</a>
+                                <span class="divider">|</span>
+                                <a href="#"><span class="mai-mail text-primary"></span> stoneclinic@gmail.com</a>
+                            </div>
+                        </div>
+                    </div> <!-- .row -->
+                </div> <!-- .container -->
+            </div> <!-- .topbar -->
+            <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
+                <div class="container">
+                    <img src="~/Photos/Stone-Clinic-Logo.png" height="50px" width="50px" />
+
+                    <a class="navbar-brand" href="#"><span class="text-primary">TheStone</span>-Clinic</a>
+
+                    <form action="#">
+                        <div class="input-group input-navbar">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="icon-addon1"><span class="mai-search"></span></span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Enter keyword" aria-label="Username" aria-describedby="icon-addon1">
+                        </div>
+                    </form>
+
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupport" aria-controls="navbarSupport" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <nav class="collapse navbar-collapse" id="navbarSupport">
+                        <ul class="navbar-nav ml-auto">
+                            @using (Html.BeginForm("Homepage", "Home", FormMethod.Post))
+                            {
+                                <li><input type="submit" value="Home" style="color:blue" /></li>
+}
+
+                            @using (Html.BeginForm("Doctor", "Home", FormMethod.Post))
+                            {
+                                <li><input type="submit" value="AddDoctor" style="color:blue" /></li>
+}
+
+                            @using (Html.BeginForm("Patient", "Home", FormMethod.Post))
+                            {
+                                <li><input type="submit" value="AddPatient" style="color:blue" /></li>
+}
+
+                            @using (Html.BeginForm("ScheduleAppointment", "Home", FormMethod.Post))
+                            {
+                                <li><input type="submit" value="ScheduleAppointment" style="color:blue" /></li>
+}
+
+                            @using (Html.BeginForm("CancelAppointment", "Home", FormMethod.Post))
+                            {
+                                <li><input type="submit" value="CancelAppointment" style="color:blue" /></li>
+}
+
+                            @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+                            {
+                                <li><input type="submit" value="Logout" style="color:blue" /></li>
+}
+                            @*@using (Html.BeginForm("Privacy", "Home", FormMethod.Post))
+                                {
+                                    <li><input type="submit" value="Privacy" style="color:blue" /></li>
+                                }*@
+
+                        </ul>
+                    </nav> <!-- .navbar-collapse -->
+                </div> <!-- .container -->
+            </nav>
+        </nav>
+    </header>
+
+    <h1 style="color:deeppink">Welcome to The Stone Clinic</h1>
+    <p style="color:darkorange">General,Internal Medicine,Pediatrics,Orthopedics & Opthalmology</p>
+    <h3>General</h3>
+    <p>
+        This field of medicine deals with non-surgical treatment of diseases by diagnosis through study and management with medication. However, severe and terminal illnesses are also treated by general physicians where they merely guide the patient as to what steps to follow as a precaution and how to reduce the condition.
+    </p>
+    <p></p>
+    <h3>Internal Medicine</h3>
+    <p>
+        Internal medicine is a little different from General Medicine as it deals with diagnosing severe diseases that occur in the various organs of the body, which are then treated by doctors specialized in that field. Internists often work with critical patients suffering from more than one health problem. Their treatment generally includes the surgery process.
+    </p>
+    <p>
+        The first point of difference is that General physicians are trained to treat patients of all ages. They help them to overcome different kinds of health problems by providing medication. Internists, however, deal with adult patients only. They are specialized to treat the various issues that the adult body faces at every stage.
+
+        General physicians get training in a broad scope of health issues and medications. However, the Internists get the overall health training, but they also acquire training in specific fields like psychiatry, oncology, etc.
+    </p>
+    <h3>Pediatrics</h3>
+    <p>
+        Pediatrics is the branch of medicine dealing with the health and medical care of infants, children, and adolescents from birth up to the age of 18. The word “paediatrics” means “healer of children”; they are derived from two Greek words: (pais = child) and (iatros = doctor or healer). Paediatrics is a relatively new medical specialty, developing only in the mid-19th century. Abraham Jacobi (1830–1919) is known as the father of paediatrics.
+    </p>
+    <p>A paediatrician is a child's physician who provides not only medical care for children who are acutely or chronically ill but also preventive health services for healthy children. A paediatrician manages physical, mental, and emotional well-being of the children under their care at every stage of development, in both sickness and health.</p>
+
+    <h3> Orthopedics </h3>
+    <p>
+        orthopedics, also called orthopedic surgery, medical specialty concerned with the preservation and restoration of function of the skeletal system and its associated structures, i.e., spinal and other bones, joints, and muscles.
+    </p>
+    <p>
+        The term orthopedics was introduced in 1741 by French physician Nicolas Andry de Bois-Regard in his work L’Orthopédie, which featured an engraving of a crooked tree splinted with a post and a rope that later became a symbol of the field. The practice of orthopedics was pioneered in the ensuing decades by Jean André Venel, who established an institute in Switzerland for the treatment of crippled children’s skeletal deformities. A vastly increased knowledge of muscular functions and of the growth and development of bone was gained in the 19th century. Significant advances at this time were the new operation of tenotomy (the cutting of tendons, which made correcting deformities easier), the surgical correction of clubfoot, the invention of the Thomas splint (which provided better support for fractures of long bones in the limbs), and the introduction of quick-setting plaster of Paris for use in orthopedic bandages. The efforts of Sir Robert Jones and the massive casualties of World War I led to the founding of many orthopedic training centres in the early 20th century.
+
+
+    </p>
+    <h3>Opthalmology</h3>
+    <p>
+        Ophthalmology is the specialized field of medicine that focuses on the health of the eye. It includes the anatomy, physiology and diseases that may affect the eye. Historically, the science of ophthalmology encompassed all aspects of visual function, both in health and in illness. Additionally, ophthalmology also includes animal eyes as ocular function and optic diseases are similar among humans and animals.
+    </p>
+
+    <p> An ophthalmologist is a specialist physician who is involved with the prevention, diagnosis and medical treatment of the eyes. This may include surgical procedures and pharmaceutical interventions and, as such, ophthalmologists have training in both fields.</p>
+
+    <p>
+        Aspects of visual function that may be considered by an ophthalmologist while doing a medical examination to make a diagnosis may include refraction, orthoptics, binocular vision and strabismus.
+    </p>
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row px-md-3">
+                <div class="col-sm-6 col-lg-3 py-3">
+                    <h5 style="color:deeppink">About Us</h5>
+                    <ul class="footer-menu">
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Our latest reviews</a></li>
+                        <li><a href="#">Meet Dr. Stone</a></li>
+                        <li><a href="#">Meet your treatment team</a></li>
+                        <li><a href="#">Financial considerations</a></li>
+
+                    </ul>
+                </div>
+                <div class="col-sm-6 col-lg-3 py-3">
+                    <h5 style="color:deeppink">Online Reviews</h5>
+                    <ul class="footer-menu">
+                        <li><a href="#">Patient Stories (Video)</a></li>
+                        <li><a href="#">Play Forever book by Dr.Stone</a></li>
+                        <li><a href="#"> Stone Research Foundation</a></li>
+                        <li><a href="#">Patient Portal(for existing patients)</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-6 col-lg-3 py-3">
+                    <h5 style="color:deeppink">Our Programs</h5>
+                    <ul class="footer-menu">
+                        <li><a href="#">General</a></li>
+                        <li><a href="#">Internal Medicine</a></li>
+                        <li><a href="#">Pediatrics</a></li>
+                        <li><a href="#">Orthopedics</a></li>
+                        <li><a href="#">Opthalmology</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-6 col-lg-3 py-3">
+                    <h5 style="color:deeppink">Contact</h5>
+                    <p class="footer-link mt-2">3727 Buchanan St #300 San Francisco,CA 94123,United States</p>
+                    <a href="#" class="footer-link">415-563-3110</a>
+                    <a href="#" class="footer-link">stoneclinic@gmail.com</a>
+                </div>
+            </div>
+
+            <hr>
+
+            <p id="copyright">Copyright &copy; 2022 <a href="#" target="_blank">Legal</a>. All right reserved</p>
+        </div>
+    </footer>
+
+</body>
+</html>

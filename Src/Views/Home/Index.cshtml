@@ -1,0 +1,48 @@
+﻿
+@model ClinikMangementSystem.Models.Login
+<title>@ViewData["Title"]The Stone Clinic </title>
+<link rel="shortcut icon" href="~/Photos/Stone-Clinic-Logo.png" type="image/x-icon" />
+<center><img src="~/Photos/Stone-Clinic-Logo.png" height="200px" width="200px"></center>
+@{ Layout = null; }
+<style>
+
+    body {
+        background-image: url("/Photos/4.jpg");
+    }
+ 
+</style>
+<html>
+
+
+    <body style="background-size:cover">
+        @using (Html.BeginForm("validate", "Home", FormMethod.Post))
+        {
+        <center>
+            <table cellpadding="5" cellspacing="5" border="0">
+                <tr>
+                    <th colspan="2" align="center" style="color:tomato"><h1><b>LOGIN</b></h1></th>
+
+                </tr>
+                <tr>
+                    <td>Username:</td>
+                    <td>@Html.TextBoxFor(m => m.UserName)</td>
+                    <td><span asp-validation-for="UserName" class="text-danger" style="color:Red"></span></td>
+                </tr>
+
+                <tr>
+                    <td>Password:</td>
+                    <td>@Html.PasswordFor(m => m.Password)</td>
+                    <td><span asp-validation-for="Password" class="text-danger" style="color:Red"></span></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="Login" style="color:blue" /></td>
+                </tr>
+            </table>
+        </center>
+            }
+
+</body>
+
+</html>
+@Html.Raw(TempData["msg"]);
